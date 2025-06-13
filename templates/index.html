@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>House Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: #fff;
+            max-width: 500px;
+            margin: 40px auto;
+            padding: 30px 40px 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            color: #555;
+        }
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 8px 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            margin-top: 25px;
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 25px;
+            padding: 12px;
+            background: #e9ffe9;
+            border: 1px solid #b2ffb2;
+            border-radius: 5px;
+            color: #1a7e1a;
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>House Price Prediction</h2>
+        <form action="/predict" method="post">
+            <label for="CRIM">CRIM (Per capita crime rate):</label>
+            <input type="text" name="CRIM" id="CRIM" required>
+
+            <label for="ZN">ZN (Proportion of residential land zoned):</label>
+            <input type="text" name="ZN" id="ZN" required>
+
+            <label for="INDUS">INDUS (Proportion of non-retail business acres):</label>
+            <input type="text" name="INDUS" id="INDUS" required>
+
+            <label for="CHAS">CHAS (Charles River dummy variable 0/1):</label>
+            <input type="text" name="CHAS" id="CHAS" required>
+
+            <label for="NOX">NOX (Nitric oxides concentration):</label>
+            <input type="text" name="NOX" id="NOX" required>
+
+            <label for="RM">RM (Average number of rooms):</label>
+            <input type="text" name="RM" id="RM" required>
+
+            <label for="AGE">AGE (Proportion of owner-occupied units built prior to 1940):</label>
+            <input type="text" name="AGE" id="AGE" required>
+
+            <label for="DIS">DIS (Weighted distances to employment centers):</label>
+            <input type="text" name="DIS" id="DIS" required>
+
+            <label for="RAD">RAD (Index of accessibility to radial highways):</label>
+            <input type="text" name="RAD" id="RAD" required>
+
+            <label for="TAX">TAX (Full-value property-tax rate):</label>
+            <input type="text" name="TAX" id="TAX" required>
+
+            <label for="PTRATIO">PTRATIO (Pupil-teacher ratio):</label>
+            <input type="text" name="PTRATIO" id="PTRATIO" required>
+
+            <label for="B">B (1000(Bk - 0.63)^2 where Bk is proportion of blacks):</label>
+            <input type="text" name="B" id="B" required>
+
+            <label for="LSTAT">LSTAT (% lower status of the population):</label>
+            <input type="text" name="LSTAT" id="LSTAT" required>
+
+            <input type="submit" value="Predict">
+        </form>
+        {% if prediction_text %}
+            <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
